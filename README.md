@@ -10,7 +10,7 @@
 - api - Express.js
 - website(admin) - Next.js
 
-### ติดตั้ง Android Studion
+### ติดตั้ง Android Studio
 - โหลด https://developer.android.com/studio
 - ตั้งค่า path ใน Environment Variables https://drive.google.com/file/d/15kKYwuhaA9Nxlms63La__4SuGrbX7LPh/view?usp=sharing
 
