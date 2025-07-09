@@ -1,0 +1,31 @@
+services:
+  express-api:
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: krmethax
+      MYSQL_DATABASE: pet_sitter_app
+    # ไม่จำเป็นต้อง expose port ให้ host แล้ว เพราะจะเข้าผ่าน phpMyAdmin แทน
+    # ports:
+    #   - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql-db
+      MYSQL_ROOT_PASSWORD: krmethax
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql-db
